@@ -15,7 +15,7 @@ An application...
 ## Screenshot(s)
 
 Page Load
-![Main View](https://raw.githubusercontent.com/gseals/solar-system/master/src/images/1mainview.png)
+![Main View](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
 
 
 ## Instructions for how to run the project
