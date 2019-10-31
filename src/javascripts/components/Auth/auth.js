@@ -14,7 +14,7 @@ const loginButton = () => {
   <img src="${monkeyButt}" />
   </button>`;
   util.printToDom('auth', domString);
-  $('#google-auth').clock(signMeIn);
+  $('#google-auth').click(signMeIn);
 };
 
 export default { loginButton };
