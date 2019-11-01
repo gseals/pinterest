@@ -6,6 +6,7 @@ const authDiv = $('#auth');
 const stockDiv = $('#stock');
 const logoutNavbar = $('#navbar-button-logout');
 const homeDiv = $('#home');
+const boardsDiv = $('#board');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -14,11 +15,13 @@ const checkLoginStatus = () => {
       logoutNavbar.removeClass('hide');
       authDiv.addClass('hide');
       homeDiv.addClass('hide');
+      boardsDiv.removeClass('hide');
     } else {
       stockDiv.addClass('hide');
       logoutNavbar.addClass('hide');
       authDiv.removeClass('hide');
       homeDiv.removeClass('hide');
+      boardsDiv.addClass('hide');
     }
   });
 };
