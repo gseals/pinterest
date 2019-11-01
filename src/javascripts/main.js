@@ -3,6 +3,7 @@ import apiKeys from './helpers/apiKeys.json';
 import auth from './components/Auth/auth';
 import authData from './helpers/data/authData';
 import myNavbar from './components/MyNavbar/myNavbar';
+import home from './components/home/home';
 import 'bootstrap';
 import '../styles/main.scss';
 
@@ -11,6 +12,7 @@ const init = () => {
   auth.loginButton();
   authData.checkLoginStatus();
   myNavbar.logoutEvent();
+  home.homeMaker();
 };
 
 init();
