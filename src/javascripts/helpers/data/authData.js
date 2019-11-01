@@ -5,6 +5,7 @@ import $ from 'jquery';
 const authDiv = $('#auth');
 const stockDiv = $('#stock');
 const logoutNavbar = $('#navbar-button-logout');
+const homeDiv = $('#home');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -12,10 +13,12 @@ const checkLoginStatus = () => {
       stockDiv.removeClass('hide');
       logoutNavbar.removeClass('hide');
       authDiv.addClass('hide');
+      homeDiv.addClass('hide');
     } else {
       stockDiv.addClass('hide');
       logoutNavbar.addClass('hide');
       authDiv.removeClass('hide');
+      homeDiv.removeClass('hide');
     }
   });
 };
