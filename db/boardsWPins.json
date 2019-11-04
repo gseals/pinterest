@@ -1,0 +1,22 @@
+{
+  "boardCollection1": {
+    "pin": "pin1",
+    "board": "board1",
+    "uid": "L2NIoO9YijVI7db3QFI7rP0BCVp2"
+  },
+  "boardCollection2": {
+    "pin": "pin2",
+    "board": "board1",
+    "uid": "L2NIoO9YijVI7db3QFI7rP0BCVp2"
+  },
+  "boardCollection3": {
+    "pin": "pin3",
+    "board": "board1",
+    "uid": "L2NIoO9YijVI7db3QFI7rP0BCVp2"
+  },
+  "boardCollection4": {
+    "pin": "pn4",
+    "board": "board1",
+    "uid": "12345"
+  }
+}
