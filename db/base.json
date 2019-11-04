@@ -1,5 +1,4 @@
 {
   "pins": "pins",
-  "boards": "boards",
-  "boardsWPins": "b&P"
+  "boards": "boards"
 }
