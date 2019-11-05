@@ -26,5 +26,19 @@
     "siteUrl": "https://megaman.fandom.com/wiki/Mega_Man_(character)",
     "description": "This is an image of Mega Man",
     "boardId": "12345"
+  },
+  "pin5": {
+    "name": "Jaws",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/819PmPH0GsL.jpg",
+    "siteUrl": "https://www.amazon.co.uk/Jaws-Peter-Benchley/dp/144722003X",
+    "description": "This is a book about sharks",
+    "boardId": "board2"
+  },
+  "pin6": {
+    "name": "To Kill a Mockingbird",
+    "imageUrl": "https://www.scholastic.com/content5/media/products/89/9780446310789_mres.jpg",
+    "siteUrl": "https://www.scholastic.com/teachers/books/to-kill-a-mockingbird-by-harper-lee/",
+    "description": "To Kill a Mockingbird book cover",
+    "boardId": "board2"
   }
 }
