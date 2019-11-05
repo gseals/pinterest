@@ -4,6 +4,11 @@
     "uid": "L2NIoO9YijVI7db3QFI7rP0BCVp2",
     "isPrivate": true,
     "descriptions": "A board for all your superheroes"
-
+  },
+  "board2": {
+    "name": "books",
+    "uid":"L2NIoO9YijVI7db3QFI7rP0BCVp2",
+    "isPrivate":true,
+    "descriptions": "These are books"
   }
 }
