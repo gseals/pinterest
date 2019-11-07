@@ -1,3 +1,6 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import boardsData from '../../helpers/data/boards';
 import util from '../../helpers/utilities';
 // import pins from '../singleBoard/singleBoard';
 
@@ -6,4 +9,11 @@ const boardMaker = () => {
   util.printToDom('board', domString);
 };
 
-export default { boardMaker };
+const buildAllBoards = () => {
+  const uid = firebase.auth().currentUser;
+  boardsData.getBoardByUser(uid)
+    .then((boards) => console.error(boards))
+    .catch((error) => console.error(error));
+};
+
+export default { boardMaker, buildAllBoards };

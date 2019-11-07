@@ -5,7 +5,7 @@ import authData from './helpers/data/authData';
 import myNavbar from './components/MyNavbar/myNavbar';
 import home from './components/home/home';
 import board from './components/boards/boards';
-import singleBoardMaker from './components/singleBoard/singleBoard';
+// import singleBoardMaker from './components/singleBoard/singleBoard';
 import 'bootstrap';
 import '../styles/main.scss';
 
@@ -16,7 +16,8 @@ const init = () => {
   myNavbar.logoutEvent();
   home.homeMaker();
   board.boardMaker();
-  singleBoardMaker.allPinsOnBoard();
+  board.consoleBoards();
+  // singleBoardMaker.consoleBoards();
 };
 
 init();

@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import $ from 'jquery';
+import boards from './boards';
 
 const authDiv = $('#auth');
 const stockDiv = $('#stock');
@@ -16,6 +17,7 @@ const checkLoginStatus = () => {
       authDiv.addClass('hide');
       homeDiv.addClass('hide');
       boardsDiv.removeClass('hide');
+      boards.getBoardByUser(user.uid);
     } else {
       stockDiv.addClass('hide');
       logoutNavbar.addClass('hide');
