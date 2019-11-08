@@ -16,7 +16,6 @@ const init = () => {
   myNavbar.logoutEvent();
   home.homeMaker();
   board.boardMaker();
-  board.consoleBoards();
   // singleBoardMaker.consoleBoards();
 };
 
