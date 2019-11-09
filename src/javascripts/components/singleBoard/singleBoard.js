@@ -5,31 +5,26 @@
 //     .catch((error) => console.error(error));
 // };
 import pinData from '../../helpers/data/pins';
+import util from '../../helpers/utilities';
 
-const singleBoard = (position) => {
-  pinData.getPinsByBoardID();
-  let domString = '';
-  if (position.pins.name) {
-    domString += `
-    <div class="card col-4">
-  <img src=${position.pins.imageUrl} alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${position.pins.name}</h5>
-    <p class="card-text">$${position.pins.description}</p>
-    <p class="card-text">${position.siteUrl}</p>
-  </div>
-</div>`;
-  } else {
-    domString += `
-    <div class="card col-4">
-  <div class="card-body">
-    <p class="card-text">EMPTY</p>
-    <p class="card-text">${position.position}</p>
-  </div>
-</div>`;
-  }
+const singleBoard = (boardId) => {
+  pinData.getPinsByBoardID(boardId)
+    .then((pins) => {
+      console.log(pins);
+      let domString = '';
+      pins.forEach((pin) => {
+        domString += `
+        <div class="card" style="width: 18rem;">
+        <img src="${pin.imageUrl}" class="card-img-top img-fluid board-image" alt="...">
+        <div class="card-body">
+        <h5 class="card-title pin-name text-center">${pin.name}</h5>
+        <p>${pin.description}</p>
+        </div></div>`;
+        util.printToDom('singleBoard', domString);
+      });
+    })
 
-  return domString;
+    .catch((error) => console.error(error));
 };
 
 export default { singleBoard };

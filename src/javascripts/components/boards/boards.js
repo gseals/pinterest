@@ -1,4 +1,4 @@
-// import $ from 'jquery';
+import $ from 'jquery';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import boardsData from '../../helpers/data/boards';
@@ -23,7 +23,7 @@ const buildAllBoards = () => {
         <div class="card-body">
         <h5 class="card-title board-name text-center">${board.name}</h5>
         <p>${board.descriptions}</p>
-        <button class="btn btn-primary">Do anything</button>
+        <button class="btn btn-primary testClick" id="${board.id}">Go to board</button>
         </div></div>`;
         util.printToDom('allBoards', domString);
       });
@@ -33,8 +33,23 @@ const buildAllBoards = () => {
 };
 
 const pinGrab = () => {
-  $('body').on('click', 'button', pins.singleBoard);
+  $('body').on('click', '.testClick', (e) => {
+    const boardClickId = $(e.target).attr('id');
+    pins.singleBoard(boardClickId);
+    document.getElementById('allBoards').innerHTML = '';
+    console.log(boardClickId);
+  });
 };
+
+// const pinGrab = () => {
+//   $('body').on('click', '.testClick', (e) => {
+//     const boardClickId = $(e.target).attr('id');
+//     pins.singleBoard(boardClickId);
+//     document.getElementById('allBoards').innerHTML = '';
+//     console.log(boardClickId);
+//   });
+// };
+// NOTE: this click event rocks. put it in notes
 
 // const event = () => {
 //   $('.board-image').hide();
