@@ -5,6 +5,7 @@ import authData from './helpers/data/authData';
 import myNavbar from './components/MyNavbar/myNavbar';
 import home from './components/home/home';
 import board from './components/boards/boards';
+import singleBoardEvent from './components/singleBoard/singleBoardEvent';
 // import singleBoard from './components/singleBoard/singleBoard';
 // import pinsData from './helpers/data/pins';
 import 'bootstrap';
@@ -20,6 +21,7 @@ const init = () => {
   // singleBoard.singleBoard();
   board.pinGrab();
   // pinsData.getPinsByBoardID();
+  singleBoardEvent.returnToBoards();
 };
 
 init();
