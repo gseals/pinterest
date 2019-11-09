@@ -1,8 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import $ from 'jquery';
-import boards from './boards';
-import boardsData from '../../components/boards/boards';
+import boardsData from './boards';
+import boardsComp from '../../components/boards/boards';
+import singleData from './pins';
 
 const authDiv = $('#auth');
 const stockDiv = $('#stock');
@@ -11,15 +12,16 @@ const homeDiv = $('#home');
 const boardsDiv = $('#board');
 
 const checkLoginStatus = () => {
-  firebase.auth().onAuthStateChanged((user) => {
+  firebase.auth().onAuthStateChanged((user, boardId) => {
     if (user) {
       stockDiv.removeClass('hide');
       logoutNavbar.removeClass('hide');
       authDiv.addClass('hide');
       homeDiv.addClass('hide');
       boardsDiv.removeClass('hide');
-      boards.getBoardByUser(user.uid);
-      boardsData.buildAllBoards(user.uid);
+      boardsData.getBoardByUser(user.uid);
+      boardsComp.buildAllBoards(user.uid);
+      singleData.getPinsByBoardID(boardId);
     } else {
       stockDiv.addClass('hide');
       logoutNavbar.addClass('hide');
