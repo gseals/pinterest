@@ -1,10 +1,10 @@
 import axios from 'axios';
 import apiKeys from '../apiKeys.json';
 
-const baseUrl = apiKeys.firebase.databaseURL;
+const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getPinsByUser = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/pins.json?orderBy="uid"&equalTo="${uid}"`)
+const getPinsByBoardID = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
     .then((response) => {
       const demPins = response.data;
       const pins = [];
@@ -17,4 +17,4 @@ const getPinsByUser = (uid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getPinsByUser };
+export default { getPinsByBoardID };
