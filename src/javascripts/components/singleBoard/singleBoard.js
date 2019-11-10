@@ -1,10 +1,26 @@
+import $ from 'jquery';
 import pinData from '../../helpers/data/pins';
 import util from '../../helpers/utilities';
+
+const deletePinOnClick = (e) => {
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  const pinId = $(e.target).attr('id');
+  console.log(pinId);
+  pinData.deletePinsData(pinId)
+    .then(() => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const boardClickId = $(e.target).attr('dataBoardId');
+      // eslint-disable-next-line no-use-before-define
+      singleBoard(boardClickId);
+    })
+    .catch((error) => console.error(error));
+};
 
 const singleBoard = (boardId) => {
   pinData.getPinsByBoardID(boardId)
     .then((pins) => {
-      console.log(pins);
       let domString = '';
       pins.forEach((pin) => {
         domString += `
@@ -13,7 +29,9 @@ const singleBoard = (boardId) => {
         <div class="card-body">
         <h5 class="card-title pin-name text-center">${pin.name}</h5>
         <p>${pin.description}</p>
-        </div></div>`;
+        </div>
+        <button class="btn btn-danger deleteThisPin" dataBoardId="${pin.boardId}" id="${pin.id}" >Delete this pin</button>
+        </div>`;
         util.printToDom('singleBoard', domString);
       });
     })
@@ -25,6 +43,7 @@ const singleBoard = (boardId) => {
     </footer>
     `;
   util.printToDom('footer', nomString);
+  $('body').on('click', '.deleteThisPin', (e) => deletePinOnClick(e));
 };
 
 export default { singleBoard };

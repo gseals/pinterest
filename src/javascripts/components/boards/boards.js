@@ -7,6 +7,7 @@ import pins from '../singleBoard/singleBoard';
 
 const boardMaker = () => {
   let domString = '<h1>Boards</h1>';
+  domString += '<button class="btn btn-dark hideWhenOnPin">Add a board</button>';
   domString += '<div id="allBoards" class="d-flex flex-wrap justify-content-between container"></div>';
   util.printToDom('board', domString);
 };
@@ -37,7 +38,8 @@ const pinGrab = () => {
     const boardClickId = $(e.target).attr('id');
     pins.singleBoard(boardClickId);
     document.getElementById('allBoards').innerHTML = '';
-    console.log(boardClickId);
+    // $('.hideWhenOnPin').addClass('hide');
+    // console.log(boardClickId);
   });
 };
 
