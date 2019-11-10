@@ -20,6 +20,7 @@ const init = () => {
   board.boardMaker();
   // singleBoard.singleBoard();
   board.pinGrab();
+  // singleBoard.deletePinOnClick();
   // pinsData.getPinsByBoardID();
   singleBoardEvent.returnToBoards();
 };
