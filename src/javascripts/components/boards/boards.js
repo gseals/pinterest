@@ -17,19 +17,22 @@ const deleteBoardOnClick = (e) => {
   e.preventDefault();
   e.stopImmediatePropagation();
   // $('#disappear').html('');
-  const { uid } = firebase.auth().currentUser;
-  const boardClickId = $(e.target).attr('id').split('kill--')[1];
-  console.log(boardClickId);
-  boardsData.deleteBoardData(boardClickId)
+  // const { uid } = firebase.auth().currentUser;
+  const boardId = $(e.target).attr('id').split('kill--')[1];
+  console.log(boardId);
+  boardsData.deleteBoardData(boardId)
+  // pinData.getAllPinsByBoardId(boardId)
   // $('#boardClickId').hide()
     .then(() => {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      pinData.getAllPinsByBoardId(boardClickId).then((pins) => {
-        pins.forEach((pin) => pinData.deleteByPinId(pin.id));
-      });
+      const { uid } = firebase.auth().currentUser;
       // eslint-disable-next-line no-use-before-define
       buildAllBoards(uid);
+      // e.preventDefault();
+      // e.stopImmediatePropagation();
+      pinData.getPinsByBoardID(boardId).then((pins) => {
+        pins.forEach((pin) => pinData.deletePinsData(pin.id));
+      });
+
       // const boardClickId = $(e.target).attr('dataBoardId');
       // // eslint-disable-next-line no-use-before-define
       // singleBoard(boardClickId);
