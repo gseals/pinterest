@@ -22,10 +22,13 @@
     </nav>
 
 <div id="board" class="hide text-center"></div>
+<div id="top" class="text-center"></div>
 <div id="home" class="text-center"></div>
 <div id="auth" class="text-center"></div>
 <div id="singleBoard" class="d-flex flex-wrap justify-content-between container"></div>
 <div id="footer" class="text-center"></div>
+
+<!-- the modal below is for creating new boards -->
 
 <div class="modal fade" id="buildBoardModal" tabindex="-1" role="dialog" aria-labelledby="buildBoardModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -52,6 +55,38 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button id="saveNewBoard" type="button" class="btn btn-primary saveBoardClass">Save New Board</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- the modal below is for creating new pins -->
+
+<div class="modal fade" id="buildPinModal" tabindex="-1" role="dialog" aria-labelledby="buildPinModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buildPinModalLabel">Create New Pin</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="pinImageUrl">Select an image to represent your Pin</label>
+            <input type="text" class="form-control" id="pinImageUrl" placeholder="An image to be on the cover of your pin">
+          </div>
+          <div class="form-group">
+            <label for="nameOfPin">Name of Pin</label>
+            <input type="text" class="form-control" id="nameOfPin" placeholder="Name of Pin">
+          </div>
+          <div class="form-group">
+            <label for="descriptionOfPin">Description of Pin</label>
+            <input type="text" class="form-control" id="descriptionOfPin" placeholder="Enter description of Pin here">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="saveNewPin" type="button" class="btn btn-primary savePinClass">Save New Pin</button>
       </div>
     </div>
   </div>

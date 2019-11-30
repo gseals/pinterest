@@ -7,7 +7,7 @@ import myNavbar from './components/MyNavbar/myNavbar';
 import home from './components/home/home';
 import board from './components/boards/boards';
 import singleBoardEvent from './components/singleBoard/singleBoardEvent';
-// import singleBoard from './components/singleBoard/singleBoard';
+import singleBoard from './components/singleBoard/singleBoard';
 // import pinsData from './helpers/data/pins';
 import 'bootstrap';
 import '../styles/main.scss';
@@ -26,6 +26,7 @@ const init = () => {
   singleBoardEvent.returnToBoards();
   // boardData.getBoardByUser();
   board.createBoardOnClick();
+  singleBoard.createPinOnClick();
 };
 
 init();

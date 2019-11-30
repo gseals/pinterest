@@ -19,6 +19,10 @@ const deletePinOnClick = (e) => {
 };
 
 const singleBoard = (boardId) => {
+  const topString = `
+  <button class="btn btn-info" data-toggle="modal" data-target="#buildPinModal">Add a pin</button>
+  `;
+  util.printToDom('top', topString);
   pinData.getPinsByBoardID(boardId)
     .then((pins) => {
       let domString = '';
@@ -46,4 +50,26 @@ const singleBoard = (boardId) => {
   $('body').on('click', '.deleteThisPin', (e) => deletePinOnClick(e));
 };
 
-export default { singleBoard };
+const createPinOnClick = () => {
+  $('body').on('click', '#saveNewPin', (e) => {
+    e.stopImmediatePropagation();
+    const newPin = {
+      name: $('#nameOfPin').val(),
+      imageUrl: $('#pinImageUrl').val(),
+      description: $('#descriptionOfPin').val(),
+      siteUrl: '',
+      boardId: '',
+    };
+    pinData.createPinData(newPin)
+      .then(() => {
+        $('#buildPinModal').modal('hide');
+        singleBoard();
+        $('#nameOfPin').val('');
+        $('#pinImageUrl').val('');
+        $('#descriptionOfPin').val('');
+      })
+      .catch((error) => console.error(error));
+  });
+};
+
+export default { singleBoard, createPinOnClick };
