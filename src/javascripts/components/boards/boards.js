@@ -8,7 +8,7 @@ import pinS from '../singleBoard/singleBoard';
 
 const boardMaker = () => {
   let domString = '<h1>Boards</h1>';
-  domString += '<button class="btn btn-dark hideWhenOnPin">Add a board</button>';
+  domString += '<button class="btn btn-dark hideWhenOnPin" data-toggle="modal" data-target="#buildBoardModal">Add a board</button>';
   domString += '<div id="allBoards" class="d-flex flex-wrap justify-content-between container"></div>';
   util.printToDom('board', domString);
 };
@@ -73,6 +73,29 @@ const pinGrab = () => {
   });
 };
 
+const createBoardOnClick = () => {
+  $('body').on('click', '#saveNewBoard', (e) => {
+    e.stopImmediatePropagation();
+    const { uid } = firebase.auth().currentUser;
+    const newBoard = {
+      nameOfBoard: $('#nameOfBoard').val(),
+      imageUrl: $('#imageUrl').val(),
+      descriptions: $('#description').val(),
+      isPrivate: true,
+      uid,
+    };
+    boardsData.createBoardData(newBoard)
+      .then(() => {
+        $('#buildBoardModal').modal('hide');
+        buildAllBoards();
+        $('#nameOfBoard').val('');
+        $('#imageUrl').val('');
+        $('#description').val('');
+      })
+      .catch((error) => console.error(error));
+  });
+};
+
 // const pinGrab = () => {
 //   $('body').on('click', '.testClick', (e) => {
 //     const boardClickId = $(e.target).attr('id');
@@ -95,4 +118,9 @@ const pinGrab = () => {
 //   });
 // };
 
-export default { boardMaker, buildAllBoards, pinGrab };
+export default {
+  boardMaker,
+  buildAllBoards,
+  pinGrab,
+  createBoardOnClick,
+};
