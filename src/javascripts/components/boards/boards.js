@@ -78,7 +78,7 @@ const createBoardOnClick = () => {
     e.stopImmediatePropagation();
     const { uid } = firebase.auth().currentUser;
     const newBoard = {
-      nameOfBoard: $('#nameOfBoard').val(),
+      name: $('#nameOfBoard').val(),
       imageUrl: $('#imageUrl').val(),
       descriptions: $('#description').val(),
       isPrivate: true,
