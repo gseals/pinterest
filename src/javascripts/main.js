@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import apiKeys from './helpers/apiKeys.json';
+// import boardData from './helpers/data/boards';
 import auth from './components/Auth/auth';
 import authData from './helpers/data/authData';
 import myNavbar from './components/MyNavbar/myNavbar';
@@ -23,6 +24,8 @@ const init = () => {
   // singleBoard.deletePinOnClick();
   // pinsData.getPinsByBoardID();
   singleBoardEvent.returnToBoards();
+  // boardData.getBoardByUser();
+  board.createBoardOnClick();
 };
 
 init();
