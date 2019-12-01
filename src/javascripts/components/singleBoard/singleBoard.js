@@ -20,7 +20,7 @@ const deletePinOnClick = (e) => {
 
 const singleBoard = (boardId) => {
   const topString = `
-  <button class="btn btn-info" data-toggle="modal" data-target="#buildPinModal">Add a pin</button>
+  <button class="btn btn-info boardIdClass" id="${boardId}" data-toggle="modal" data-target="#buildPinModal">Add a pin</button>
   `;
   util.printToDom('top', topString);
   pinData.getPinsByBoardID(boardId)
@@ -54,16 +54,17 @@ const createPinOnClick = () => {
   $('body').on('click', '#saveNewPin', (e) => {
     e.stopImmediatePropagation();
     const newPin = {
+      boardId: $('.boardIdClass')[0].id,
       name: $('#nameOfPin').val(),
       imageUrl: $('#pinImageUrl').val(),
       description: $('#descriptionOfPin').val(),
       siteUrl: '',
-      boardId: '',
     };
     pinData.createPinData(newPin)
       .then(() => {
         $('#buildPinModal').modal('hide');
-        singleBoard();
+        const boardId = $('.boardIdClass')[0].id;
+        singleBoard(boardId);
         $('#nameOfPin').val('');
         $('#pinImageUrl').val('');
         $('#descriptionOfPin').val('');
