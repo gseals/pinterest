@@ -10,6 +10,7 @@ const returnToBoards = () => {
   $('body').on('click', '#returnToBoards', () => {
     document.getElementById('singleBoard').innerHTML = '';
     document.getElementById('footer').innerHTML = '';
+    document.getElementById('top').innerHTML = '';
     boards.buildAllBoards();
     $('.hideWhenOnPin').removeClass('hide');
   });
