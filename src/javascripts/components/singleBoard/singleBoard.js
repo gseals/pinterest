@@ -34,12 +34,14 @@ const singleBoard = (boardId) => {
         <h5 class="card-title pin-name text-center">${pin.name}</h5>
         <p>${pin.description}</p>
         </div>
-        <button class="btn btn-danger deleteThisPin" dataBoardId="${pin.boardId}" id="${pin.id}" >Delete this pin</button>
+        <div class="d-flex justify-content-between">
+        <button class="btn btn-info editPins" data-toggle="modal" data-target="#updatePinToBoard" id="update-${pin.id}">Update Pin</button>
+        <button class="btn btn-danger deleteThisPin" dataBoardId="${pin.boardId}" id="${pin.id}">Delete Pin</button>
+        </div>
         </div>`;
         util.printToDom('singleBoard', domString);
       });
     })
-
     .catch((error) => console.error(error));
   const nomString = `
     <footer>

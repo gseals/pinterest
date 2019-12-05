@@ -16,26 +16,16 @@ const boardMaker = () => {
 const deleteBoardOnClick = (e) => {
   e.preventDefault();
   e.stopImmediatePropagation();
-  // $('#disappear').html('');
-  // const { uid } = firebase.auth().currentUser;
   const boardId = $(e.target).attr('id').split('kill--')[1];
   console.log(boardId);
   boardsData.deleteBoardData(boardId)
-  // pinData.getAllPinsByBoardId(boardId)
-  // $('#boardClickId').hide()
     .then(() => {
       const { uid } = firebase.auth().currentUser;
       // eslint-disable-next-line no-use-before-define
       buildAllBoards(uid);
-      // e.preventDefault();
-      // e.stopImmediatePropagation();
       pinData.getPinsByBoardID(boardId).then((pins) => {
         pins.forEach((pin) => pinData.deletePinsData(pin.id));
       });
-
-      // const boardClickId = $(e.target).attr('dataBoardId');
-      // // eslint-disable-next-line no-use-before-define
-      // singleBoard(boardClickId);
     })
     .catch((error) => console.error(error));
 };
@@ -69,7 +59,6 @@ const pinGrab = () => {
     pinS.singleBoard(boardClickId);
     document.getElementById('allBoards').innerHTML = '';
     $('.hideWhenOnPin').addClass('hide');
-    // console.log(boardClickId);
   });
 };
 
@@ -95,28 +84,6 @@ const createBoardOnClick = () => {
       .catch((error) => console.error(error));
   });
 };
-
-// const pinGrab = () => {
-//   $('body').on('click', '.testClick', (e) => {
-//     const boardClickId = $(e.target).attr('id');
-//     pins.singleBoard(boardClickId);
-//     document.getElementById('allBoards').innerHTML = '';
-//     console.log(boardClickId);
-//   });
-// };
-// NOTE: this click event rocks. put it in notes
-
-// const event = () => {
-//   $('.board-image').hide();
-//   $('.card').on('mouseenter mouseleave', (e) => {
-//     const eventB = $(e.target);
-//     eventB.find('.board-image').fadeToggle(500);
-//     eventB.find('.board-name').hide();
-//   });
-//   $('.card').mouseleave(() => {
-//     $('.board-name').fadeIn(900);
-//   });
-// };
 
 export default {
   boardMaker,

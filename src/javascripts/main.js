@@ -11,6 +11,7 @@ import singleBoard from './components/singleBoard/singleBoard';
 // import pinsData from './helpers/data/pins';
 import 'bootstrap';
 import '../styles/main.scss';
+import boardData from './helpers/data/boards';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
@@ -27,6 +28,7 @@ const init = () => {
   // boardData.getBoardByUser();
   board.createBoardOnClick();
   singleBoard.createPinOnClick();
+  boardData.getBoardByUser();
 };
 
 init();
