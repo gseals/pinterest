@@ -17,7 +17,6 @@ const deleteBoardOnClick = (e) => {
   e.preventDefault();
   e.stopImmediatePropagation();
   const boardId = $(e.target).attr('id').split('kill--')[1];
-  console.log(boardId);
   boardsData.deleteBoardData(boardId)
     .then(() => {
       const { uid } = firebase.auth().currentUser;
@@ -49,7 +48,11 @@ const buildAllBoards = () => {
       });
     })
 
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      const domString = error.message;
+      util.printToDom('allBoards', domString);
+      console.error(error);
+    });
   $('body').on('click', '.deleteBoardByBoardId', (e) => deleteBoardOnClick(e));
 };
 

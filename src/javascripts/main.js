@@ -29,6 +29,7 @@ const init = () => {
   board.createBoardOnClick();
   singleBoard.createPinOnClick();
   boardData.getBoardByUser();
+  singleBoard.boardOptions();
 };
 
 init();
