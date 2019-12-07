@@ -37,7 +37,7 @@ const singleBoard = (boardId) => {
         <p>${pin.description}</p>
         </div>
         <div class="d-flex justify-content-between">
-        <button class="btn btn-info editPins" boardUpdate="${pin.boardId}" pinId="${pin.id}" data-toggle="modal" data-target="#updatePinToBoard" id="update-${pin.id}">Update Pin</button>
+        <button class="btn btn-info editPins" boardUpdate="${pin.boardId}" pinId="${pin.id}" id="update-${pin.id}">Update Pin</button>
         <button class="btn btn-danger deleteThisPin" dataBoardId="${pin.boardId}" id="${pin.id}">Delete Pin</button>
         </div>
         </div>`;
@@ -105,12 +105,14 @@ const boardOptions = () => {
 $('body').on('click', '.editPins', (e) => {
   const boardId = $(e.target).attr('boardUpdate');
   const pinId = $(e.target).attr('pinId');
-  pinData.getPinsByBoardID(boardId)
-    .then((info) => {
+  pinData.getPinToUpdate(pinId)
+    .then((response) => {
+      const info = response.data;
       $('#updatedNameOfPin').val(info.name);
       $('#updatedPinImageUrl').val(info.imageUrl);
       $('#boardsSwap').val(info.boardId);
       $('#updatedDescriptionOfPin').val(info.description);
+      $('#updateSiteUrl').val(info.siteUrl);
     });
   $('#updatePinToBoard').modal('show');
   $('#updatePinToBoard').find('.modal-footer').attr('id', pinId);
@@ -118,25 +120,27 @@ $('body').on('click', '.editPins', (e) => {
   boardOptions();
 });
 
-const updatePinOnClick = (e) => {
+const updatePinOnClick = (e, boardId) => {
   e.stopImmediatePropagation();
   const pinId = e.target.parentNode.id;
   const updatedPin = {
-    // name: ,
-    // imageUrl: ,
-    // description: ,
+    name: $('#updatedNameOfPin').val(),
+    imageUrl: $('#updatedPinImageUrl').val(),
+    description: $('#updatedDescriptionOfPin').val(),
     boardId: $('#boardsSwap').val(),
+    siteUrl: $('#updateSiteUrl').val(),
   };
   pinData.updatePins(pinId, updatedPin)
     .then(() => {
+      singleBoard(boardId);
     })
     .catch((error) => console.error(error));
 };
 
 $('body').on('click', '#saveUpdatedPin', (e) => {
-  const boardId = e.target.parentNode.boardid;
-  updatePinOnClick(e);
-  singleBoard(boardId);
+  const boardId = $(e.target).parent().attr('boardid');
+  console.log(boardId);
+  updatePinOnClick(e, boardId);
   $('#updatePinToBoard').modal('hide');
 });
 
