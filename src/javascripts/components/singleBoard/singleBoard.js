@@ -1,6 +1,9 @@
 import $ from 'jquery';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import pinData from '../../helpers/data/pins';
 import util from '../../helpers/utilities';
+import boardData from '../../helpers/data/boards';
 
 const deletePinOnClick = (e) => {
   e.preventDefault();
@@ -35,7 +38,7 @@ const singleBoard = (boardId) => {
         <p>${pin.description}</p>
         </div>
         <div class="d-flex justify-content-between">
-        <button class="btn btn-info editPins" data-toggle="modal" data-target="#updatePinToBoard" id="update-${pin.id}">Update Pin</button>
+        <button class="btn btn-info editPins" boardUpdate="${pin.boardId}" pinId="${pin.id}" data-toggle="modal" data-target="#updatePinToBoard" id="update-${pin.id}">Update Pin</button>
         <button class="btn btn-danger deleteThisPin" dataBoardId="${pin.boardId}" id="${pin.id}">Delete Pin</button>
         </div>
         </div>`;
@@ -74,5 +77,38 @@ const createPinOnClick = () => {
       .catch((error) => console.error(error));
   });
 };
+
+const boardOptions = () => {
+  const { uid } = firebase.auth().currentUser;
+  boardData.getBoardByUser(uid)
+    .then((boards) => {
+      let boardString = '';
+      boardString += `
+        <div>
+          <label for="boardsSwap">Choose Board</label>
+          <select class="form-control" id="boardsSwap">`;
+      boards.forEach((board) => {
+        boardString += `<option value="${board.id}">${board.name}</option>`;
+      });
+      boardString += `
+          </select>
+        </div>
+        `;
+      util.printToDom('updatePinBoard', boardString);
+    })
+    .catch((error) => console.error(error));
+};
+
+$('body').on('click', '.editPins', (e) => {
+  const boardId = $(e.target).attr('boardUpdate');
+  const pinId = $(e.target).attr('pinId');
+  pinData.getPinsByBoardID(boardId)
+    .then((info) => {
+      $('#updatedPinImageUrl').val(info.boardId);
+    });
+  $('#updatePinToBoard').modal('show');
+  $('#updatePinToBoard').find('.modal-footer').attr('id', pinId);
+  boardOptions();
+});
 
 export default { singleBoard, createPinOnClick };
