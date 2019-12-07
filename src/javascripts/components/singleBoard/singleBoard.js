@@ -103,12 +103,30 @@ $('body').on('click', '.editPins', (e) => {
   const boardId = $(e.target).attr('boardUpdate');
   const pinId = $(e.target).attr('pinId');
   pinData.getPinsByBoardID(boardId)
-    .then((info) => {
-      $('#updatedPinImageUrl').val(info.boardId);
-    });
+    .then(() => {});
   $('#updatePinToBoard').modal('show');
   $('#updatePinToBoard').find('.modal-footer').attr('id', pinId);
+  $('#updatePinToBoard').find('.modal-footer').attr('boardid', boardId);
   boardOptions();
+});
+
+const updatePinOnClick = (e) => {
+  e.stopImmediatePropagation();
+  const pinId = e.target.parentNode.id;
+  const updatedPin = {
+    boardId: $('#boardsSwap').val(),
+  };
+  pinData.updatePins(pinId, updatedPin)
+    .then(() => {
+    })
+    .catch((error) => console.error(error));
+};
+
+$('body').on('click', '#saveUpdatedPin', (e) => {
+  const boardId = e.target.parentNode.boardid;
+  updatePinOnClick(e);
+  singleBoard(boardId);
+  $('#updatePinToBoard').modal('hide');
 });
 
 export default { singleBoard, createPinOnClick };
