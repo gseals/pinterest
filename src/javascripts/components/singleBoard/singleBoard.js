@@ -9,7 +9,6 @@ const deletePinOnClick = (e) => {
   e.preventDefault();
   e.stopImmediatePropagation();
   const pinId = $(e.target).attr('id');
-  console.log(pinId);
   pinData.deletePinsData(pinId)
     .then(() => {
       e.preventDefault();
@@ -45,7 +44,11 @@ const singleBoard = (boardId) => {
         util.printToDom('singleBoard', domString);
       });
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      const domString = error.message;
+      util.printToDom('singleBoard', domString);
+      console.error(error);
+    });
   const nomString = `
     <footer>
     <button class="btn btn-success" id="returnToBoards">Return to boards</button>
@@ -103,7 +106,12 @@ $('body').on('click', '.editPins', (e) => {
   const boardId = $(e.target).attr('boardUpdate');
   const pinId = $(e.target).attr('pinId');
   pinData.getPinsByBoardID(boardId)
-    .then(() => {});
+    .then((info) => {
+      $('#updatedNameOfPin').val(info.name);
+      $('#updatedPinImageUrl').val(info.imageUrl);
+      $('#boardsSwap').val(info.boardId);
+      $('#updatedDescriptionOfPin').val(info.description);
+    });
   $('#updatePinToBoard').modal('show');
   $('#updatePinToBoard').find('.modal-footer').attr('id', pinId);
   $('#updatePinToBoard').find('.modal-footer').attr('boardid', boardId);
@@ -114,6 +122,9 @@ const updatePinOnClick = (e) => {
   e.stopImmediatePropagation();
   const pinId = e.target.parentNode.id;
   const updatedPin = {
+    // name: ,
+    // imageUrl: ,
+    // description: ,
     boardId: $('#boardsSwap').val(),
   };
   pinData.updatePins(pinId, updatedPin)
