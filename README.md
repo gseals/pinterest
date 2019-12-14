@@ -16,19 +16,19 @@ A Pinterest-style application allowing users to create boards and pins for whate
 ## Screenshot(s)
 
 Logged Out View
-![Logged Out View](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
+![Logged Out View](https://raw.githubusercontent.com/gseals/pinterest/master/screenshots/loggedOut.png)
 
 Logged In View
-![Logged In View](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
+![Logged In View](https://raw.githubusercontent.com/gseals/pinterest/master/screenshots/loggedIn.png)
 
 Add Board
-![Add Board](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
+![Add Board](https://raw.githubusercontent.com/gseals/pinterest/master/screenshots/addBoard.png)
 
 Pin View
-![Pin View](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
+![Pin View](https://raw.githubusercontent.com/gseals/pinterest/master/screenshots/pins.png)
 
 Add Pin
-![Add Pin](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
+![Add Pin](https://raw.githubusercontent.com/gseals/pinterest/master/screenshots/addPin.png)
 
 ## Instructions for how to run the project
 
@@ -36,6 +36,10 @@ Add Pin
 * Install [http-server](https://www.npmjs.com/package/http-server) from npm.
 * At the root of this project, run the following command: `hs -p 8888`.
 * In your browser, navigate to `https://localhost:8888`;
+
+## Deployed Site
+
+![Coming Soon](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
 
 ## Contributors
 
