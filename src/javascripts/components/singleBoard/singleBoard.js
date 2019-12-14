@@ -45,7 +45,10 @@ const singleBoard = (boardId) => {
       });
     })
     .catch((error) => {
-      const domString = error.message;
+      const domString = `
+      <div class="text-center">
+      <h1>${error.message}</h1>
+      </div>`;
       util.printToDom('singleBoard', domString);
       console.error(error);
     });
@@ -139,9 +142,14 @@ const updatePinOnClick = (e, boardId) => {
 
 $('body').on('click', '#saveUpdatedPin', (e) => {
   const boardId = $(e.target).parent().attr('boardid');
-  console.log(boardId);
   updatePinOnClick(e, boardId);
   $('#updatePinToBoard').modal('hide');
+});
+
+$('body').on('click', '#navbar-button-logout', () => {
+  $('#singleBoard').html('');
+  $('#top').html('');
+  $('#footer').html('');
 });
 
 export default { singleBoard, createPinOnClick };

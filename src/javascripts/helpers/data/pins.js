@@ -9,7 +9,7 @@ const getPinsByBoardID = (boardId) => new Promise((resolve, reject) => {
     .then((response) => {
       const demPins = response.data;
       if ($.isEmptyObject(demPins)) {
-        reject(new Error('There are no pins to display!'));
+        reject(new Error('There are no pins to display! Consider making some!'));
       } else {
         const pins = [];
         Object.keys(demPins).forEach((pinId) => {

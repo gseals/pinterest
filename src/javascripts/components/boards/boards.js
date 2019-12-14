@@ -49,7 +49,10 @@ const buildAllBoards = () => {
     })
 
     .catch((error) => {
-      const domString = error.message;
+      const domString = `
+      <div class="text-center">
+      <h1>${error.message}</h1>
+      </div>`;
       util.printToDom('allBoards', domString);
       console.error(error);
     });
