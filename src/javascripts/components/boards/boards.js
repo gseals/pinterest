@@ -65,6 +65,7 @@ const pinGrab = () => {
     pinS.singleBoard(boardClickId);
     document.getElementById('allBoards').innerHTML = '';
     $('.hideWhenOnPin').addClass('hide');
+    $('#board').addClass('hide');
   });
 };
 

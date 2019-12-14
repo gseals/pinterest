@@ -22,6 +22,7 @@ const deletePinOnClick = (e) => {
 
 const singleBoard = (boardId) => {
   const topString = `
+  <h1>Pins</h1>
   <button class="btn btn-info boardIdClass" id="${boardId}" data-toggle="modal" data-target="#buildPinModal">Add a pin</button>
   `;
   util.printToDom('top', topString);

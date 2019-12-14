@@ -9,6 +9,7 @@ const returnToBoards = () => {
     document.getElementById('top').innerHTML = '';
     boards.buildAllBoards();
     $('.hideWhenOnPin').removeClass('hide');
+    $('#board').removeClass('hide');
   });
 };
 
