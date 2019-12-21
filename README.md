@@ -39,7 +39,7 @@ Add Pin
 
 ## Deployed Site/Demo
 
-* ![Try the app out here](https://pinterest-9ab9b.firebaseapp.com)
+* [Try the app out here](https://pinterest-9ab9b.firebaseapp.com)
 
 ## Contributors
 
