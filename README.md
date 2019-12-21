@@ -37,9 +37,9 @@ Add Pin
 * At the root of this project, run the following command: `hs -p 8888`.
 * In your browser, navigate to `https://localhost:8888`;
 
-## Deployed Site
+## Deployed Site/Demo
 
-![Coming Soon](https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg)
+* ![Try the app out here](https://pinterest-9ab9b.firebaseapp.com)
 
 ## Contributors
 
