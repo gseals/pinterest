@@ -6,12 +6,17 @@ A Pinterest-style application allowing users to create boards and pins for whate
 
 ## Technologies Used
 
-* HTML5, CSS, and Javascript
-* [Bootstrap](https://getbootstrap.com/): free and open-source CSS framework
-* ES6 Modules
-* [jQuery](https://jquery.com/)
-* [Axios](https://github.com/axios/axios)
-* [Firebase](https://firebase.google.com/)
+* [Axios 0.19.0](https://www.npmjs.com/package/axios)
+* [Bootstrap 4.3.1](https://getbootstrap.com/)
+* [CSS3](https://www.w3.org/Style/CSS/Overview.en.html)
+* [ES6 modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+* [ESLint 14.0.0](https://eslint.org/)
+* [Firebase 7.2.2](https://firebase.google.com/)
+* [HTML5](https://html.spec.whatwg.org/multipage/)
+* [JavaScript](https://www.javascript.com/)
+* [jQuery 3.4.1](https://jquery.com/)
+* [SASS 4.13.1](https://sass-lang.com/)
+* [Webpack 4.41.2](https://webpack.js.org/)
 
 ## Screenshot(s)
 
