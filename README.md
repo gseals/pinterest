@@ -15,7 +15,7 @@ A Pinterest-style application allowing users to create boards and pins for whate
 * [HTML5](https://html.spec.whatwg.org/multipage/)
 * [JavaScript](https://www.javascript.com/)
 * [jQuery 3.4.1](https://jquery.com/)
-* [SASS 4.13.1](https://sass-lang.com/)
+* [SCSS 4.13.1](https://sass-lang.com/)
 * [Webpack 4.41.2](https://webpack.js.org/)
 
 ## Screenshot(s)
