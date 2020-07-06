@@ -2,7 +2,7 @@
 
 ## Description
 
-A Pinterest-style application allowing users to create boards and pins for whatever they like. This project allowed for the use of - and practice with - axios, promises, and firebase.
+* A Pinterest-style application allowing users to create boards and pins for whatever they like. This project allowed for the use of - and practice with - Axios, promises, and firebase.
 
 ## Technologies Used
 
