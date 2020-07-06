@@ -4,9 +4,9 @@
 
 * A Pinterest-style application allowing users to create boards and pins for whatever they like. This project allowed for the use of - and practice with - Axios, promises, and Firebase.
 
-## Deployed Site/Demo
+## Demo Link
 
-* [Try the app out here](https://pinterest-9ab9b.firebaseapp.com)
+* [Check out the Project](https://pinterest-9ab9b.firebaseapp.com)
 
 ## Technologies Used
 
