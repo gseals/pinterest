@@ -4,6 +4,10 @@
 
 * A Pinterest-style application allowing users to create boards and pins for whatever they like. This project allowed for the use of - and practice with - Axios, promises, and firebase.
 
+## Deployed Site/Demo
+
+* [Try the app out here](https://pinterest-9ab9b.firebaseapp.com)
+
 ## Technologies Used
 
 * [Axios 0.19.0](https://www.npmjs.com/package/axios)
@@ -41,10 +45,6 @@ Add Pin
 * Install [http-server](https://www.npmjs.com/package/http-server) from npm.
 * At the root of this project, run the following command: `hs -p 8888`.
 * In your browser, navigate to `https://localhost:8888`;
-
-## Deployed Site/Demo
-
-* [Try the app out here](https://pinterest-9ab9b.firebaseapp.com)
 
 ## Contributors
 
